@@ -92,7 +92,7 @@ module.exports = async (bot , message) => {
       const embedpe = new MessageEmbed()
       .setColor(`#06b0ff`)
       .setDescription(`Missing Permissions: \**${invalidPerms}\**`)
-      return message.channel.send(embedpe);
+      return message.channel.send(embedpe).then(m => m.delete({ timeout: 5000 }));
     }
   }
 }
