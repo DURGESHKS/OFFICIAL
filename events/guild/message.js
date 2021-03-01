@@ -78,8 +78,7 @@ module.exports = async (bot , message) => {
       .setColor(`#06b0ff`)
       .setDescription(`Missing Permissions: \**${invalidPerms}\**`)
       return message.channel.send(embedpe).then(m => {
-    m.delete({ timeout: 10000 })
-  });
+    m.delete({ timeout: 10000 });
     }
   }
     
