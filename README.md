@@ -1,1 +1,1 @@
-# OFFICIAL
+npm install images-scraper
