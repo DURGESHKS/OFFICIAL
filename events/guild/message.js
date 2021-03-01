@@ -20,6 +20,9 @@ module.exports = async (bot , message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
+    if (await message.content.startsWith(prefix + cmd)) {
+         message.delete()
+     }
 
     if (cmd.length === 0) return;
     
