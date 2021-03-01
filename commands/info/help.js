@@ -5,6 +5,7 @@ module.exports = {
     name: "help",
     aliases: ["h"],
     category: "info",
+    permissions: ["CREATE_INSTANT_INVITE"],
     description: "Returns all commands, or one specific command info",
     usage: "[command | alias]",
     run: async (client, message, args) => {
