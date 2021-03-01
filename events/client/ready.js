@@ -12,7 +12,7 @@ module.exports = client => {
 
     }, 5000)
 
-    client.user.setUsername('<bot name>'); // sets the bots name
+    client.user.setUsername('OFFICIAL'); // sets the bots name
     client.user.setStatus("online"); // sets the bots status
     
   console.log(`Hello ${client.user.username} is now online!`); // consoles logs this when bot is turned on
