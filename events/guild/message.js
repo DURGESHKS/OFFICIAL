@@ -1,5 +1,4 @@
-  
-const Timeout = new Set();
+ const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const {prefix} = require('../../botconfig.json')
 const ms = require('ms')
@@ -75,10 +74,11 @@ module.exports = async (bot , message) => {
     }
     if (invalidPerms.length){
       const embedpe = new MessageEmbed()
-      .setColor(`#06b0ff`)
+      .setColor(`#EC7310`)
       .setDescription(`Missing Permissions: \**${invalidPerms}\**`)
       return message.channel.send(embedpe).then(m => {
-    m.delete({ timeout: 10000 });
+    m.delete({ timeout: 10000 })
+  });
     }
   }
     
