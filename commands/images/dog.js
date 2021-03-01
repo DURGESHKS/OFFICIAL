@@ -2,7 +2,7 @@ const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: "dog",
+    name: "image dog",
     category: "animals",
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/dog";
