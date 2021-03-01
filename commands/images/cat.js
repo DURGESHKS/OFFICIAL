@@ -2,12 +2,11 @@ const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: "image",
+    name: "image cat",
     category: "images",
     run: async (client, message, args) => {
-    	const query = args.join(" ")
-        const url = "https://some-random-api.ml/img/" + query;
-        const facts = "https://some-random-api.ml/facts/" + query
+        const url = "https://some-random-api.ml/img/cat";
+        const facts = "https://some-random-api.ml/facts/cat"
 
         let image, response;
         let fact, responses;
@@ -23,7 +22,7 @@ module.exports = {
         }
 
         const embed = new MessageEmbed()
-            .setTitle(`Random Cat Image and Fact`)
+            .setTitle(`Random Bird Image and Fact`)
             .setColor(`#f3f3f3`)
             .setDescription(fact.fact)
             .setImage(image.link)
