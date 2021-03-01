@@ -4,6 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: "image-cat",
     category: "images",
+    permissions: ["CREATE_INSTANT_INVITE"],
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/cat";
         const facts = "https://some-random-api.ml/facts/cat"
