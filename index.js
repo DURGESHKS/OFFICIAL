@@ -3,7 +3,7 @@ const fs = require("fs");
 const client = new Discord.Client({
     disableEveryone: true,
   });
-const config = require("./config.json");
+const config = require("./botconfig.json");
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
