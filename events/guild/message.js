@@ -26,25 +26,7 @@ module.exports = async (bot , message) => {
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
-    if (command) {
-        if(command.timeout){
-            if(Timeout.has(`${message.author.id}${command.name}`)) {
-                return message.reply(`You can only use this command every ${ms(command.timeout)}!`)
-            }else{
-                
-                command.run(bot, message, args);
-                Timeout.add(`${message.author.id}${command.name}`)
-                setTimeout(() => {
-                    Timeout.delete(`${message.author.id}${command.name}`)
-                }, command.timeout);
-            }
-        }else{
-            command.run(bot,message,args)
-        }
-
-    }
-    
-      const validPermissions = [
+    const validPermissions = [
     "CREATE_INSTANT_INVITE",
     "KICK_MEMBERS",
     "BAN_MEMBERS",
@@ -92,7 +74,26 @@ module.exports = async (bot , message) => {
       const embedpe = new MessageEmbed()
       .setColor(`#06b0ff`)
       .setDescription(`Missing Permissions: \**${invalidPerms}\**`)
-      return message.channel.send(embedpe).then(m => m.delete({ timeout: 5000 }));
+      return message.channel.send(embedpe);
     }
   }
+    
+    if (command) {
+        if(command.timeout){
+            if(Timeout.has(`${message.author.id}${command.name}`)) {
+                return message.reply(`You can only use this command every ${ms(command.timeout)}!`)
+            }else{
+                
+                command.run(bot, message, args);
+                Timeout.add(`${message.author.id}${command.name}`)
+                setTimeout(() => {
+                    Timeout.delete(`${message.author.id}${command.name}`)
+                }, command.timeout);
+            }
+        }else{
+            command.run(bot,message,args)
+        }
+
+    }
+    
 }
