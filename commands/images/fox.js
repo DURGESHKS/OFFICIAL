@@ -4,6 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: "fox",
     category: "images",
+    timeout: 60000,
     permissions: ["SEND_MESSAGES"],
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/fox";
@@ -19,7 +20,18 @@ module.exports = {
             fact = responses.data
 
         } catch (e) {
-            return message.channel.send(`An error occured, please try again!`)
+            const errorembed = new MessageEmbed()
+
+            .setTitle(`\**${message.author.username}\**`)
+
+            .setColor(`#000206`)
+
+            .setThumbnail(message.author.displayAvatarURL())
+
+            .setDescription(`An error occured, please try again!`)
+
+            return message.channel.send(errorembed)
+
         }
 
         const embed = new MessageEmbed()
@@ -28,6 +40,10 @@ module.exports = {
             .setDescription(fact.fact)
             .setImage(image.link)
 
-        await message.channel.send(embed)
+        await message.channel.send(embed).then(m => {
+
+m.delete({ timeout: 300000 })
+
+  });
     }
 }
