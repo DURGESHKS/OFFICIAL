@@ -5,6 +5,7 @@ module.exports = {
     name: "dog",
     category: "images",
     permissions: ["SEND_MESSAGES"],
+    timeout: 60000,
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/dog";
         const facts = "https://some-random-api.ml/facts/dog"
@@ -18,8 +19,18 @@ module.exports = {
             responses = await axios.get(facts)
             fact = responses.data
 
-        } catch (e) {
-            return message.channel.send(`An error occured, please try again!`)
+        } catch (e) { const errorembed = new MessageEmbed()
+
+            .setTitle(`\**${message.author.username}\**`)
+
+            .setColor(`#000206`)
+
+            .setThumbnail(message.author.displayAvatarURL())
+
+            .setDescription(`An error occured, please try again!`)
+
+            return message.channel.send(errorembed)
+
         }
 
         const embed = new MessageEmbed()
@@ -28,6 +39,10 @@ module.exports = {
             .setDescription(fact.fact)
             .setImage(image.link)
 
-        await message.channel.send(embed)
+        await message.channel.send(embed).then(m => {
+
+m.delete({ timeout: 300000 })
+
+  });
     }
 }
