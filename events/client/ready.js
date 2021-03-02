@@ -14,9 +14,18 @@ module.exports = client => {
 
     }, 5000)
 
-    client.user.setUsername('OFFICIAL'); // sets the bots name
-    client.user.setStatus("online"); // sets the bots status
-    
-  console.log(`Hello ${client.user.username} is now online!`); // consoles logs this when bot is turned on
-   
+  const express = require("express");
+  const app = express();
+  const http = require("http");
+  const config = require("./../../botconfig.json");
+  const port = config.PORT;
+  const replname = config.REPLNAME;
+  const username = config.USERNAME;
+  app.get('/', (req, res) => res.send(`Hello ${client.user.username} is now online!`));
+
+  app.listen(port, () => console.log(`Hello ${client.user.username} is now online! Listening port ${port}`));
+  setInterval(() => {
+  http.get(`http://${replname}.${username}.repl.co/`);
+}, 210000);   
+
 };
