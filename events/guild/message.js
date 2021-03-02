@@ -92,7 +92,9 @@ module.exports = async (bot , message) => {
                 .setThumbnail(message.author.displayAvatarURL())
                 .setDescription(`You can only use this command every **${ms(command.timeout)}!**`)
                 .setFooter(`COOLDOWN`)
-                return message.reply(embedtime)
+                return message.reply(embedtime).then(m => {
+                    m.delete({ timeout: 15000 })
+            });
             }else{
                 
                 command.run(bot, message, args);
