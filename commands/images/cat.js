@@ -20,7 +20,12 @@ module.exports = {
             fact = responses.data
 
         } catch (e) {
-            return message.channel.send(`An error occured, please try again!`)
+            const errorembed = new MessageEmbed()
+            .setTitle(`\**${message.author.username}\**`)
+            .setColor(`#000206`)
+            .setThumbnail(message.author.displayAvatarURL())
+            .setDescription(`An error occured, please try again!`)
+            return message.channel.send(errorembed)
         }
 
         const embed = new MessageEmbed()
