@@ -25,7 +25,11 @@ module.exports = {
             .setColor(`#000206`)
             .setThumbnail(message.author.displayAvatarURL())
             .setDescription(`An error occured, please try again!`)
-            return message.channel.send(errorembed)
+            return message.channel.send(errorembed).then(m => {
+
+m.delete({ timeout: 20000 })
+
+  });
         }
 
         const embed = new MessageEmbed()
