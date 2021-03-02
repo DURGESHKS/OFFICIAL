@@ -23,7 +23,7 @@ module.exports = async (bot , message) => {
     
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-    if (await message.content.startsWith(prefix + command.name)) {
+    if (await message.content.startsWith(prefix + command.name) && message.content.startsWith(prefix + command.aliases)) {
         message.delete()
     }
     
