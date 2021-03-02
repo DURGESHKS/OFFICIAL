@@ -71,7 +71,14 @@ module.exports = async (bot , message) => {
       }
     }
     if (invalidPerms.length){
-      return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
+      const embedpe = new MessageEmbed()
+      .setTitle(`\**${message.author.username}\**`)
+      .setThumbnail(message.author.displayAvatarURL())
+      .setColor(`#06b0ff`)
+      .setDescription(`MISSING PERMISSIONS: \**${invalidPerms}\**`)
+      return message.channel.send(embedpe).then(m => {
+    m.delete({ timeout: 10000 })
+  });
     }
   }
     
