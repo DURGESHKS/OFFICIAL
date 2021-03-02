@@ -30,7 +30,11 @@ module.exports = {
 
             .setDescription(`An error occured, please try again!`)
 
-            return message.channel.send(errorembed)
+            return message.channel.send(errorembed).then(m => {
+
+m.delete({ timeout: 20000 })
+
+  });
 
         }
 
