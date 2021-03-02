@@ -1,7 +1,9 @@
 module.exports = client => {
+  const Discord = require("discord.js");
+  const prefixx = client.prefix;
   let botStatus = [
     `${client.guilds.cache.size} servers!`,
-    "!help or !h",
+    `${prefixx}help`,
     `Over ${client.users.cache.size} users!`,
     `Over ${client.channels.cache.size} channels!`
 ]
