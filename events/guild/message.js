@@ -75,7 +75,7 @@ module.exports = async (bot , message) => {
       const embedpe = new MessageEmbed()
       .setTitle(`\**${message.author.username}\**`)
       .setThumbnail(message.author.displayAvatarURL())
-      .setColor(`#06b0ff`)
+      .setColor(`#DB0C00`)
       .setDescription(`MISSING PERMISSIONS: \**${invalidPerms}\**`)
       .setFooter(`REQUIRE PERMISSIONS`)
       return message.channel.send(embedpe).then(m => {
