@@ -104,9 +104,7 @@ module.exports = async (bot , message) => {
                 }, command.timeout);
             }
         }else{
-            command.run(bot,message,args).then(m => {
-m.delete({ timeout: 300000 })
-  });
+            command.run(bot,message,args)
         }
 
     }
