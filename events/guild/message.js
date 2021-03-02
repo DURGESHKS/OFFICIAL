@@ -22,10 +22,10 @@ module.exports = async (bot , message) => {
     if (cmd.length === 0) return;
     
     let command = bot.commands.get(cmd);
-    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-    if (await message.content.startsWith(prefix + command.name) && message.content.startsWith(prefix + command.aliases)) {
+    if (await message.content.startsWith(prefix + command.name)) {
         message.delete()
     }
+    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
