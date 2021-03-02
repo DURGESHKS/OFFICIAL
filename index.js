@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const fetch = require("node-fetch");
 const client = new Discord.Client({
     disableEveryone: true,
   });
@@ -24,9 +23,5 @@ const url = config.URL;
   client.on('guildMemberRemove', async (message) => {
     require("./events/guild/memberRemove")(message)
   })
-  
-setInterval(async () => {
-  await fetch(url).then(console.log('REFRESHED ✅'))
-}, 300000)
 
   client.login(process.env.TOKEN);
