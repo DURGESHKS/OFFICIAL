@@ -1,3 +1,4 @@
+  
 const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const {prefix} = require('../../botconfig.json')
@@ -19,9 +20,6 @@ module.exports = async (bot , message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
-    if (await message.content.startsWith(prefix + cmd)) {
-         message.delete()
-     }
 
     if (cmd.length === 0) return;
     
@@ -73,14 +71,7 @@ module.exports = async (bot , message) => {
       }
     }
     if (invalidPerms.length){
-      const embedpe = new MessageEmbed()
-      .setTitle(`\**${message.author.username}\**`)
-      .setThumbnail(message.author.displayAvatarURL())
-      .setColor(`#EC7310`)
-      .setDescription(`Missing Permissions: \**${invalidPerms}\**`)
-      return message.channel.send(embedpe).then(m => {
-    m.delete({ timeout: 10000 })
-  });
+      return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
     }
   }
     
@@ -101,5 +92,4 @@ module.exports = async (bot , message) => {
         }
 
     }
-    
 }
