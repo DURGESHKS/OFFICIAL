@@ -1,4 +1,4 @@
- const Timeout = new Set();
+const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const {prefix} = require('../../botconfig.json')
 const ms = require('ms')
