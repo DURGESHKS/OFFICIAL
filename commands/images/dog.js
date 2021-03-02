@@ -19,7 +19,8 @@ module.exports = {
             responses = await axios.get(facts)
             fact = responses.data
 
-        } catch (e) { const errorembed = new MessageEmbed()
+        } catch (e) { 
+            const errorembed = new MessageEmbed()
 
             .setTitle(`\**${message.author.username}\**`)
 
