@@ -26,7 +26,7 @@ const url = config.URL;
   })
   
 setInterval(async () => {
-  await fetch(url).then(console.log('REFRESH'))
+  await fetch(url).then(console.log('REFRESH ✅'))
 }, 300000)
 
   client.login(process.env.TOKEN);
