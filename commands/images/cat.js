@@ -39,7 +39,7 @@ m.delete({ timeout: 20000 })
             .setImage(image.link)
 
         await message.channel.send(embed).then(m => {
-m.delete({ timeout: 300000 })
+m.delete({ timeout: 60000 })
   });
     }
 }
