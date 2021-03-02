@@ -2,7 +2,7 @@ const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: "image-koala",
+    name: "koala",
     category: "images",
     permissions: ["SEND_MESSAGES"],
     run: async (client, message, args) => {
