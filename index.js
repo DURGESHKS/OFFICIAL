@@ -1,17 +1,16 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const fetch = require('node-fetch')
-
+const fetch = require('node-fetch');
 const client = new Discord.Client({
     disableEveryone: true,
   });
 const config = require("./botconfig.json");
-const url = config.URL;
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
+const url = config.URL;
 
 
 ["command", "event"].forEach(handler => {
@@ -25,5 +24,9 @@ client.prefix = config.prefix;
   client.on('guildMemberRemove', async (message) => {
     require("./events/guild/memberRemove")(message)
   })
+  
+setInterval(async () => {
+  await fetch(url).then(console.log('REFRESH'))
+}, 300000)
 
   client.login(process.env.TOKEN);
