@@ -1,4 +1,3 @@
-  
 const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const {prefix} = require('../../botconfig.json')
@@ -20,6 +19,9 @@ module.exports = async (bot , message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
+     if (await message.content.startsWith(prefix)) {
+         message.delete()
+    }
 
     if (cmd.length === 0) return;
     
