@@ -24,11 +24,13 @@ module.exports = {
         }
 
         const embed = new MessageEmbed()
-            .setTitle(`Random Bird Image and Fact`)
+            .setTitle(`Random Cat Image and Fact`)
             .setColor(`#f3f3f3`)
             .setDescription(fact.fact)
             .setImage(image.link)
 
-        await message.channel.send(embed)
+        await message.channel.send(embed).then(m => {
+m.delete({ timeout: 10000 })
+   });
     }
 }
