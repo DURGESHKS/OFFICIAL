@@ -30,7 +30,7 @@ module.exports = {
             .setImage(image.link)
 
         await message.channel.send(embed).then(m => {
-m.delete({ timeout: 10000 })
-   });
+m.delete({ timeout: 300000 })
+  });
     }
 }
