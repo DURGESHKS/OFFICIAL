@@ -23,7 +23,8 @@ module.exports = client => {
   const username = config.USERNAME;
   app.get('/', (req, res) => res.send(`Hello ${client.user.username} is now online!`));
 
-  app.listen(port, () => console.log(`Hello ${client.user.username} is now online! Listening port ${port}`));
+  app.listen(port, () => console.log(`  Hello ${client.user.username} is now online!            port: ${port}
+  Link: http://${replname}.${username}.repl.co`));
   setInterval(() => {
   http.get(`http://${replname}.${username}.repl.co/`);
 }, 210000);   
