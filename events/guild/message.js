@@ -77,6 +77,7 @@ module.exports = async (bot , message) => {
       .setThumbnail(message.author.displayAvatarURL())
       .setColor(`#06b0ff`)
       .setDescription(`MISSING PERMISSIONS: \**${invalidPerms}\**`)
+      .setFooter(`REQUIRED PERMISSIONS`)
       return message.channel.send(embedpe).then(m => {
     m.delete({ timeout: 10000 })
   });
