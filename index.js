@@ -9,7 +9,6 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
-const url = config.URL;
 
 
 ["command", "event"].forEach(handler => {
