@@ -3,43 +3,11 @@ const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
 const ms = require('ms')
 const prefix = config.prefix;
-const badwords = config.BADWORDS;
-const nolinks = config.NOLINK;
-const endlinks = config.ENDLINK;
 
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
-	const WORDBAD = new MessageEmbed()
-        .setColor(`#13FF7E`)
-        .setTitle(`\**${message.author.username}\**`)
-        .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`<a:ARROW:816671896259133451>You were trying to Abuse in \**${server.name}\ SERVER!** ${angryemoji} <a:NOLINK:816664187828305960>`)
-        .setFooter(`BANWORD`, bot.user.displayAvatarURL())
-     
-        const NSL = new MessageEmbed()
-        .setColor(`#13FF7E`)
-        .setTitle(`\**${message.author.username}\**`)
-        .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`<a:ARROW:816671896259133451>You were trying to Send Link in \**${server.name}\ SERVER!** <a:NOLINK:816664187828305960>`)
-        .setFooter(`NOLINK`, bot.user.displayAvatarURL())
-
-     if (await message.content.startsWith(nolinks)) {
-         message.delete()
-         return message.author.send(NSL)
-     }
-     
-     if (await message.content.startsWith(badwords)) {
-         message.delete()
-         return message.author.send(WORDBAD)
-     }
-     
-     if (await message.content.endsWith(endlinks)) {
-         message.delete()
-         return message.author.send(NSL)
-     }
-     
-
+	
 
     if (message.author.bot) return;
     if (!message.content.toLowerCase().startsWith(prefix)) return;
