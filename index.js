@@ -4,6 +4,12 @@ const client = new Discord.Client({
     disableEveryone: true,
   });
 const config = require("./botconfig.json");
+const fetch = require('node-fetch');
+const port = config.PORT;
+const replnamet = config.REPLNAME;
+const replname = replnamet.toUpperCase();
+const usernamet = config.USERNAME;
+const username = usernamet.toLowerCase();
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -22,5 +28,10 @@ client.prefix = config.prefix;
   client.on('guildMemberRemove', async (message) => {
     require("./events/guild/memberRemove")(message)
   })
+  
+  let count = 0;
+  setInterval(async () => {
+     await fetch(`http://${replname}.${username}.repl.co/`).then(console.log(`  [${++count}]http://${replname}.${username}.repl.co/`))
+  }, 240000);
 
   client.login(process.env.TOKEN);
