@@ -2,13 +2,13 @@ const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
 const ms = require('ms')
-const badword = config.BADWORD;
 const prefix = config.prefix;
-const nolink = config.NOLINK;
-const lastwordlink = config.LASTWORDLINK;
 const sademoji = config.SADEMOJI;
 const angryemoji = config.ANGRYEMOJI;
 const danceemoji = config.DANCEEMOJI;
+const erroremoji = config.ERROR;
+const tickemoji = config.TICKS;
+const tickemoji = config.ARROW;
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
@@ -16,7 +16,7 @@ module.exports = async (bot , message) => {
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`, angryemoji)
+        .setDescription(`${erroremoji}You were trying to Abuse in \**${server.name}\ SERVER!** ${angryemoji}`)
         .setFooter(`BANWORD`, bot.user.displayAvatarURL())
      
         const NSL = new MessageEmbed()
