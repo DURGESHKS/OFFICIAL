@@ -21,19 +21,15 @@ module.exports = async (bot , message) => {
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
     
-    const commanderlife = bot.commands.get(cmd);
-    const commando = commanderlife.name.toUpperCase();
-    const commmdo = commanderlife.name.toLowerCase();
+    const commmdo  = args.shift().toLowerCase();
+    const commanderlife = bot.commands.get(commmdo);
+    if (commanderlife.length === 0) return;
     if (await message.content.startsWith(prefix + commando)) {
 
         message.delete()
 
     }
 
-    if (await message.content.startsWith(prefix + commmdo)) {
-
-       message.delete() 
-    }
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
