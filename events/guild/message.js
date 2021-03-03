@@ -1,14 +1,43 @@
 const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
-const {prefix} = require('../../botconfig.json')
+const config = require('../../botconfig.json')
 const ms = require('ms')
+const badword = config.BADWORD;
+const prefix = config.prefix;
+const nolink = config.NOLINK;
+const lastwordlink = config.LASTWORDLINK;
 
 module.exports = async (bot , message) => {
+	 const server = message.guild;
+	 const WORDBAD = new MessageEmbed()
+     .setColor(`#13FF7E`)
+     .setTitle(`\**${message.author.username}\**`)
+     .setThumbnail(message.author.displayAvatarURL())
+     .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`)
+     .setFooter(`BANWORD`)
+     
+     const NSL = new MessageEmbed()
+     .setColor(`#13FF7E`)
+     .setTitle(`\**${message.author.username}\**`)
+     .setThumbnail(message.author.displayAvatarURL())
+     .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`)
+     .setFooter(`NOLINK`)
 
-    // if (await message.content.startsWith('https://')) {
-    //     message.delete()
-    //     return message.channel.send('no links please')
-    // }
+     if (await message.content.startsWith(nolink)) {
+         message.delete()
+         return message.author.send(NSL)
+     }
+     
+     if (await message.content.startsWith(badword)) {
+         message.delete()
+         return message.author.send(WORDBAD)
+     }
+     
+     if (await message.content.endsWith(lastwordlink)) {
+         message.delete()
+         return message.author.send(NSL)
+     }
+     
 
 
     if (message.author.bot) return;
@@ -20,16 +49,19 @@ module.exports = async (bot , message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift()
     if (cmd.length === 0) return;
-    
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
+    if (await message.content.startsWith(prefix + command.aliases)) {
+
+        message.delete()
+
+    }
     if (await message.content.startsWith(prefix + command.name)) {
 
         message.delete()
 
     }
-
     
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
