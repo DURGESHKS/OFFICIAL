@@ -16,7 +16,6 @@ module.exports = client => {
 
   const express = require("express");
   const app = express();
-  const http = require("http");
   const config = require("./../../botconfig.json");
   const addresst = config.ADDRESS;
   const address = addresst.toLowerCase();
