@@ -6,6 +6,7 @@ const badword = config.BADWORD;
 const prefix = config.prefix;
 const nolink = config.NOLINK;
 const lastwordlink = config.LASTWORDLINK;
+const sademoji = config.SADEMOJI;
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
@@ -14,14 +15,14 @@ module.exports = async (bot , message) => {
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
         .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`)
-        .setFooter(`BANWORD`)
+        .setFooter(`BANWORD`, bot.user.displayAvatarURL))
      
         const NSL = new MessageEmbed()
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
         .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`)
-        .setFooter(`NOLINK`)
+        .setFooter(`NOLINK`, bot.user.displayAvatarURL))
 
      if (await message.content.startsWith(nolink)) {
          message.delete()
@@ -112,8 +113,8 @@ module.exports = async (bot , message) => {
       .setTitle(`\**${message.author.username}\**`)
       .setThumbnail(message.author.displayAvatarURL())
       .setColor(`#DB0C00`)
-      .setDescription(`REQUIRE PERMISSIONS: \**${invalidPerms}\**`)
-      .setFooter(`PERMISSION`)
+      .setDescription(`REQUIRE PERMISSIONS: \**${invalidPerms}\**`, sademoji)
+      .setFooter(`PERMISSION`, bot.user.displayAvatarURL))
       return message.channel.send(embedpe).then(m => {
     m.delete({ timeout: 10000 })
   });
@@ -127,7 +128,7 @@ module.exports = async (bot , message) => {
                 .setTitle(`\**${message.author.username}\**`)
                 .setThumbnail(message.author.displayAvatarURL())
                 .setDescription(`You can only use this command every **${ms(command.timeout)}!**`)
-                .setFooter(`COOLDOWN`)
+                .setFooter(`COOLDOWN`, bot.user.displayAvatarURL))
                 return message.reply(embedtime).then(m => {
                     m.delete({ timeout: 15000 })
             });
