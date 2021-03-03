@@ -7,6 +7,7 @@ const prefix = config.prefix;
 const nolink = config.NOLINK;
 const lastwordlink = config.LASTWORDLINK;
 const sademoji = config.SADEMOJI;
+const angryemoji = config.ANGRYEMOJI;
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
@@ -14,14 +15,14 @@ module.exports = async (bot , message) => {
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`)
+        .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`, angryemoji)
         .setFooter(`BANWORD`, bot.user.displayAvatarURL))
      
         const NSL = new MessageEmbed()
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`)
+        .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`, angryemoji)
         .setFooter(`NOLINK`, bot.user.displayAvatarURL))
 
      if (await message.content.startsWith(nolink)) {
