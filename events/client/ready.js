@@ -18,6 +18,8 @@ module.exports = client => {
   const app = express();
   const http = require("http");
   const config = require("./../../botconfig.json");
+  const addresst = config.ADDRESS;
+  const address = addresst.toLowerCase();
   const domaint = config.DOMAIN;
   const domain = domaint.toLowerCase();
   const port = config.PORT;
@@ -30,6 +32,6 @@ module.exports = client => {
 
   app.listen(port, () => console.log(`  Hello ${client.user.username} is now online! 
   port: ${port}
-  Link: http://${replname}.${username}.${domain}`));
+  Link: ${address}://${replname}.${username}.${domain}`));
 
 };
