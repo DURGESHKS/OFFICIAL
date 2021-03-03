@@ -8,20 +8,20 @@ const nolink = config.NOLINK;
 const lastwordlink = config.LASTWORDLINK;
 
 module.exports = async (bot , message) => {
-	 const server = message.guild;
-	 const WORDBAD = new MessageEmbed()
-     .setColor(`#13FF7E`)
-     .setTitle(`\**${message.author.username}\**`)
-     .setThumbnail(message.author.displayAvatarURL())
-     .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`)
-     .setFooter(`BANWORD`)
+	const server = message.guild;
+	const WORDBAD = new MessageEmbed()
+        .setColor(`#13FF7E`)
+        .setTitle(`\**${message.author.username}\**`)
+        .setThumbnail(message.author.displayAvatarURL())
+        .setDescription(`You were trying to Abuse in \**${server.name}\ SERVER!**`)
+        .setFooter(`BANWORD`)
      
-     const NSL = new MessageEmbed()
-     .setColor(`#13FF7E`)
-     .setTitle(`\**${message.author.username}\**`)
-     .setThumbnail(message.author.displayAvatarURL())
-     .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`)
-     .setFooter(`NOLINK`)
+        const NSL = new MessageEmbed()
+        .setColor(`#13FF7E`)
+        .setTitle(`\**${message.author.username}\**`)
+        .setThumbnail(message.author.displayAvatarURL())
+        .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`)
+        .setFooter(`NOLINK`)
 
      if (await message.content.startsWith(nolink)) {
          message.delete()
