@@ -28,7 +28,7 @@ const reconDB = require("reconlx");
 
 const mongourl = process.env.MONGOURL;
 
-await mongoose.connect(mongourl, {
+mongoose.connect(mongourl, {
 
   useNewUrlParser: true,
 
