@@ -12,6 +12,8 @@ const usernamet = config.USERNAME;
 const username = usernamet.toLowerCase();
 const domaint = config.DOMAIN;
 const domain = domaint.toLowerCase();
+const addresst = config.ADDRESS;
+const address = addresst.toLowerCase();
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -32,7 +34,7 @@ client.prefix = config.prefix;
   })
   
   setInterval(async () => {
-     await fetch(`https://${replname}.${username}.${domain}/`)
+     await fetch(`${address}://${replname}.${username}.${domain}/`)
   }, 240000);
 
   client.login(process.env.TOKEN);
