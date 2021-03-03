@@ -10,6 +10,8 @@ const replnamet = config.REPLNAME;
 const replname = replnamet.toUpperCase();
 const usernamet = config.USERNAME;
 const username = usernamet.toLowerCase();
+const domaint = config.DOMAIN;
+const domain = domaint.toLowerCase();
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -30,7 +32,7 @@ client.prefix = config.prefix;
   })
   
   setInterval(async () => {
-     await fetch(`http://${replname}.${username}.repl.co/`)
+     await fetch(`http://${replname}.${username}.${domain}/`)
   }, 240000);
 
   client.login(process.env.TOKEN);
