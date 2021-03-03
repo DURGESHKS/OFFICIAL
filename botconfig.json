@@ -5,21 +5,5 @@
   "USERNAME": "",
   "DOMAIN": "repl.co",
   "ADDRESS": "",
-  "ONLINETIME": 600000,
-  "BADWORDS": 
-  [
-  "PORN",
-  "FUCK",
-  "PUSSY"
-  ],
-  "ENDLINK": 
-  [
-  ".com",
-  ".tk"
-  ],
-  "NOLINK": 
-  [
-  "https://",
-  "http://"
-  ]
+  "ONLINETIME": 600000
 }
