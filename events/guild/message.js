@@ -3,12 +3,7 @@ const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
 const ms = require('ms')
 const prefix = config.prefix;
-const sademoji = config.SADEMOJI;
-const angryemoji = config.ANGRYEMOJI;
-const danceemoji = config.DANCEEMOJI;
-const erroremoji = config.ERROR;
-const tickemoji = config.TICKS;
-const tickemoji = config.ARROW;
+
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
@@ -16,27 +11,27 @@ module.exports = async (bot , message) => {
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`${erroremoji}You were trying to Abuse in \**${server.name}\ SERVER!** ${angryemoji}`)
+        .setDescription(`<a:ARROW:816671896259133451>You were trying to Abuse in \**${server.name}\ SERVER!** ${angryemoji} <a:NOLINK:816664187828305960>`)
         .setFooter(`BANWORD`, bot.user.displayAvatarURL())
      
         const NSL = new MessageEmbed()
         .setColor(`#13FF7E`)
         .setTitle(`\**${message.author.username}\**`)
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`You were trying to Send Link in \**${server.name}\ SERVER!**`, angryemoji)
+        .setDescription(`<a:ARROW:816671896259133451>You were trying to Send Link in \**${server.name}\ SERVER!** <a:NOLINK:816664187828305960>`)
         .setFooter(`NOLINK`, bot.user.displayAvatarURL())
 
-     if (await message.content.startsWith(nolink)) {
+     if (await message.content.startsWith("", "")) {
          message.delete()
          return message.author.send(NSL)
      }
      
-     if (await message.content.startsWith(badword)) {
+     if (await message.content.startsWith("", "")) {
          message.delete()
          return message.author.send(WORDBAD)
      }
      
-     if (await message.content.endsWith(lastwordlink)) {
+     if (await message.content.endsWith("", "")) {
          message.delete()
          return message.author.send(NSL)
      }
@@ -115,7 +110,7 @@ module.exports = async (bot , message) => {
       .setTitle(`\**${message.author.username}\**`)
       .setThumbnail(message.author.displayAvatarURL())
       .setColor(`#DB0C00`)
-      .setDescription(`REQUIRE PERMISSIONS: \**${invalidPerms}\**`, sademoji)
+      .setDescription(`<a:ERROR:816671850804543509>REQUIRE PERMISSIONS: \**${invalidPerms}\** <a:NOPERMISSION:816664072858763284>`)
       .setFooter(`PERMISSION`, bot.user.displayAvatarURL())
       return message.channel.send(embedpe).then(m => {
     m.delete({ timeout: 10000 })
@@ -129,7 +124,7 @@ module.exports = async (bot , message) => {
                 .setColor(`#EF473C`)
                 .setTitle(`\**${message.author.username}\**`)
                 .setThumbnail(message.author.displayAvatarURL())
-                .setDescription(`You can only use this command every **${ms(command.timeout)}!**`, danceemoji)
+                .setDescription(`<a:ERROR:816671850804543509>You can only use this command every **${ms(command.timeout)}!** <a:COOLDOWN:816664555575967764>`)
                 .setFooter(`COOLDOWN`, bot.user.displayAvatarURL())
                 return message.reply(embedtime).then(m => {
                     m.delete({ timeout: 15000 })
@@ -148,4 +143,4 @@ module.exports = async (bot , message) => {
 
     }
  
-}
+ }
