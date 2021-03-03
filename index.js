@@ -16,9 +16,6 @@ const addresst = config.ADDRESS;
 const address = addresst.toLowerCase();
 const httptime = config.ONLINETIME;
 // const token = config.token;
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
 const mongoose = require('mongoose');
 
@@ -26,15 +23,10 @@ const reconDB = require("reconlx");
 
 const mongourl = process.env.MONGOURL;
 
-mongoose.connect(mongourl, {
 
-  useNewUrlParser: true,
-
-  useUnifiedTopology: true,
-
-}).then(console.log(`  CONNECTED TO MONGO DB!
-  LINK: ${mongourl}`))
-
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+client.categories = fs.readdirSync("./commands/");
 
 
 ["command", "event"].forEach(handler => {
@@ -48,6 +40,15 @@ mongoose.connect(mongourl, {
   client.on('guildMemberRemove', async (message) => {
     require("./events/guild/memberRemove")(message)
   })
+mongoose.connect(mongourl, {
+
+  useNewUrlParser: true,
+
+  useUnifiedTopology: true,
+
+}).then(console.log(`  CONNECTED TO MONGO DB!
+
+  LINK: ${mongourl}`))
   
   setInterval(async () => {
   http.get(`${address}://${replname}.${username}.${domain}/`);
