@@ -8,7 +8,7 @@ const nolink = config.NOLINK;
 const lastwordlink = config.LASTWORDLINK;
 const sademoji = config.SADEMOJI;
 const angryemoji = config.ANGRYEMOJI;
-conste danceemoji = config.DANCEEMOJI;
+const danceemoji = config.DANCEEMOJI;
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
