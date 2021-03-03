@@ -31,7 +31,7 @@ client.prefix = config.prefix;
   
   let count = 0;
   setInterval(async () => {
-     await fetch(`http://${replname}.${username}.repl.co/`).then(console.log(`  [${++count}]http://${replname}.${username}.repl.co/`))
+     await fetch(`http://${replname}.${username}.repl.co/`)
   }, 240000);
 
   client.login(process.env.TOKEN);
