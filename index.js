@@ -4,7 +4,7 @@ const client = new Discord.Client({
     disableEveryone: true,
   });
 const config = require("./botconfig.json");
-const fetch = require('node-fetch');
+const http = require("http");
 const port = config.PORT;
 const replnamet = config.REPLNAME;
 const replname = replnamet.toUpperCase();
@@ -14,6 +14,7 @@ const domaint = config.DOMAIN;
 const domain = domaint.toLowerCase();
 const addresst = config.ADDRESS;
 const address = addresst.toLowerCase();
+const httptime = config.ONLINETIME;
 // const token = config.token;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -34,7 +35,7 @@ client.prefix = config.prefix;
   })
   
   setInterval(async () => {
-     await fetch(`${address}://${replname}.${username}.${domain}/`)
-  }, 240000);
+  http.get(`${address}://${replname}.${username}.${domain}/`);
+  }, httptime);
 
   client.login(process.env.TOKEN);
