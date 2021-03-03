@@ -18,15 +18,18 @@ module.exports = async (bot , message) => {
     if(!message.guild) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-     if (await message.content.startsWith(prefix)) {
-         message.delete()
-    }
-
+    const cmd = args.shift()
     if (cmd.length === 0) return;
     
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
+    
+    if (await message.content.startsWith(prefix + command.name)) {
+
+        message.delete()
+
+    }
+
     
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
@@ -76,18 +79,26 @@ module.exports = async (bot , message) => {
       const embedpe = new MessageEmbed()
       .setTitle(`\**${message.author.username}\**`)
       .setThumbnail(message.author.displayAvatarURL())
-      .setColor(`#06b0ff`)
-      .setDescription(`MISSING PERMISSIONS: \**${invalidPerms}\**`)
+      .setColor(`#DB0C00`)
+      .setDescription(`REQUIRE PERMISSIONS: \**${invalidPerms}\**`)
+      .setFooter(`PERMISSION`)
       return message.channel.send(embedpe).then(m => {
     m.delete({ timeout: 10000 })
   });
     }
   }
-    
     if (command) {
         if(command.timeout){
             if(Timeout.has(`${message.author.id}${command.name}`)) {
-                return message.reply(`You can only use this command every ${ms(command.timeout)}!`)
+            	const embedtime = new MessageEmbed()
+                .setColor(`#EF473C`)
+                .setTitle(`\**${message.author.username}\**`)
+                .setThumbnail(message.author.displayAvatarURL())
+                .setDescription(`You can only use this command every **${ms(command.timeout)}!**`)
+                .setFooter(`COOLDOWN`)
+                return message.reply(embedtime).then(m => {
+                    m.delete({ timeout: 15000 })
+            });
             }else{
                 
                 command.run(bot, message, args);
@@ -101,4 +112,5 @@ module.exports = async (bot , message) => {
         }
 
     }
+ 
 }
