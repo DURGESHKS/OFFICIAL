@@ -22,8 +22,6 @@ client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
 const mongoose = require('mongoose');
 
-const db = require('quick.db');
-
 const reconDB = require("reconlx");
 
 const mongourl = process.env.MONGOURL;
