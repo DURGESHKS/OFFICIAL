@@ -27,8 +27,5 @@ module.exports = client => {
 
   app.listen(port, () => console.log(`  Hello ${client.user.username} is now online!            port: ${port}
   Link: http://${replname}.${username}.repl.co`));
-  setInterval(() => {
-  http.get(`http://${replname}.${username}.repl.co/`);
-}, 210000);   
 
 };
