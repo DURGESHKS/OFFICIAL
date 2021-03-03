@@ -3,5 +3,6 @@
   "PORT": 6854,
   "REPLNAME": "",
   "USERNAME": "",
-  "DOMAIN": "repl.co"
+  "DOMAIN": "repl.co",
+  "ADDRESS": ""
 }
