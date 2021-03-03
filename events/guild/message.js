@@ -22,8 +22,13 @@ module.exports = async (bot , message) => {
     if (cmd.length === 0) return;
     
     let command = bot.commands.get(cmd);
-    if (await message.content.startsWith(prefix + command.name)) {
-        message.delete()
+    const commando = command.name.toUpperCase();
+    const commmdo = command.name.toLowerCase();
+    if (await message.content.startsWith(prefix + commando)) {
+        message.delete()
+    }
+    if (await message.content.startsWith(prefix + commmdo)) {
+       message.delete() 
     }
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
