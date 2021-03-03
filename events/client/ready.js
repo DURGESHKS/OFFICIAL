@@ -32,6 +32,6 @@ module.exports = client => {
 
   app.listen(port, () => console.log(`  Hello ${client.user.username} is now online! 
   port: ${port}
-  Link: ${address}://${replname}.${username}.${domain}`));
+  Link: ${address}://${replname}.${username}.${domain}/`));
 
 };
