@@ -7,5 +7,6 @@
   "ADDRESS": "",
   "ONLINETIME": 300000,
   "BADWORD": "",
-  "NOLINK":""
+  "NOLINK":"",
+  "LASTWORDLINK": ""
 }
