@@ -32,7 +32,7 @@ client.prefix = config.prefix;
   })
   
   setInterval(async () => {
-     await fetch(`http://${replname}.${username}.${domain}/`)
+     await fetch(`https://${replname}.${username}.${domain}/`)
   }, 240000);
 
   client.login(process.env.TOKEN);
