@@ -26,7 +26,7 @@ const db = require('quick.db');
 
 const reconDB = require("reconlx");
 
-const mongourl = process.env.MONGOURL
+const mongourl = process.env.MONGOURL;
 
 await mongoose.connect(mongourl, {
 
