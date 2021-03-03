@@ -34,7 +34,9 @@ await mongoose.connect(mongourl, {
 
   useUnifiedTopology: true,
 
-}).then(console.log("CONNECTED TO MONGO DB!"))
+}).then(console.log(`  CONNECTED TO MONGO DB!
+  LINK: ${mongourl}`))
+
 
 
 ["command", "event"].forEach(handler => {
