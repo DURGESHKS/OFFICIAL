@@ -4,5 +4,6 @@
   "REPLNAME": "",
   "USERNAME": "",
   "DOMAIN": "repl.co",
-  "ADDRESS": ""
+  "ADDRESS": "",
+  "ONLINETIME": 300000
 }
