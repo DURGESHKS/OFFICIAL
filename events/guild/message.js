@@ -3,6 +3,9 @@ const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
 const ms = require('ms')
 const prefix = config.prefix;
+const badwords = config.BADWORDS;
+const nolinks = config.NOLINK;
+const endlinks = config.ENDLINK;
 
 
 module.exports = async (bot , message) => {
@@ -21,17 +24,17 @@ module.exports = async (bot , message) => {
         .setDescription(`<a:ARROW:816671896259133451>You were trying to Send Link in \**${server.name}\ SERVER!** <a:NOLINK:816664187828305960>`)
         .setFooter(`NOLINK`, bot.user.displayAvatarURL())
 
-     if (await message.content.startsWith("", "")) {
+     if (await message.content.startsWith(nolinks)) {
          message.delete()
          return message.author.send(NSL)
      }
      
-     if (await message.content.startsWith("", "")) {
+     if (await message.content.startsWith(badwords)) {
          message.delete()
          return message.author.send(WORDBAD)
      }
      
-     if (await message.content.endsWith("", "")) {
+     if (await message.content.endsWith(endlinks)) {
          message.delete()
          return message.author.send(NSL)
      }
