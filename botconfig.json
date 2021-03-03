@@ -8,5 +8,6 @@
   "ONLINETIME": 300000,
   "BADWORD": "",
   "NOLINK":"",
-  "LASTWORDLINK": ""
+  "LASTWORDLINK": "",
+  "NOBADWORKLINK": "http://imgur.com/gallery/5RABk2W"
 }
