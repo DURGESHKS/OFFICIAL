@@ -6,5 +6,6 @@
   "DOMAIN": "repl.co",
   "ADDRESS": "",
   "ONLINETIME": 300000,
-  "BADWORD": ""
+  "BADWORD": "",
+  "NOLINK":""
 }
