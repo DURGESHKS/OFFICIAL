@@ -20,6 +20,21 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
+const mongoose = require('mongoose');
+
+const db = require('quick.db');
+
+const reconDB = require("reconlx");
+
+const mongourl = process.env.MONGOURL
+
+await mongoose.connect(mongourl, {
+
+  useNewUrlParser: true,
+
+  useUnifiedTopology: true,
+
+}).then(console.log(CONNECTED TO MONGO DB!))
 
 
 ["command", "event"].forEach(handler => {
