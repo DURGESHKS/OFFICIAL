@@ -18,6 +18,8 @@ module.exports = client => {
   const app = express();
   const http = require("http");
   const config = require("./../../botconfig.json");
+  const domaint = config.DOMAIN;
+  const domain = domaint.toLowerCase();
   const port = config.PORT;
   const replnamet = config.REPLNAME;
   const replname = replnamet.toUpperCase();
@@ -26,6 +28,6 @@ module.exports = client => {
   app.get('/', (req, res) => res.send(`Hello ${client.user.username} is now online!`));
 
   app.listen(port, () => console.log(`  Hello ${client.user.username} is now online!            port: ${port}
-  Link: http://${replname}.${username}.repl.co`));
+  Link: http://${replname}.${username}.${domain}`));
 
 };
