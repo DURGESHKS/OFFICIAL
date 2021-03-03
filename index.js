@@ -29,7 +29,6 @@ client.prefix = config.prefix;
     require("./events/guild/memberRemove")(message)
   })
   
-  let count = 0;
   setInterval(async () => {
      await fetch(`http://${replname}.${username}.repl.co/`)
   }, 240000);
