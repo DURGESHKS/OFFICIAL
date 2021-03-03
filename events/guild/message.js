@@ -8,6 +8,7 @@ const nolink = config.NOLINK;
 const lastwordlink = config.LASTWORDLINK;
 const sademoji = config.SADEMOJI;
 const angryemoji = config.ANGRYEMOJI;
+conste danceemoji = config.DANCEEMOJI;
 
 module.exports = async (bot , message) => {
 	const server = message.guild;
@@ -128,7 +129,7 @@ module.exports = async (bot , message) => {
                 .setColor(`#EF473C`)
                 .setTitle(`\**${message.author.username}\**`)
                 .setThumbnail(message.author.displayAvatarURL())
-                .setDescription(`You can only use this command every **${ms(command.timeout)}!**`)
+                .setDescription(`You can only use this command every **${ms(command.timeout)}!**`, danceemoji)
                 .setFooter(`COOLDOWN`, bot.user.displayAvatarURL))
                 return message.reply(embedtime).then(m => {
                     m.delete({ timeout: 15000 })
