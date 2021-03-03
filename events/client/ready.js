@@ -27,7 +27,9 @@ module.exports = client => {
   const username = usernamet.toLowerCase();
   app.get('/', (req, res) => res.send(`Hello ${client.user.username} is now online!`));
 
-  app.listen(port, () => console.log(`  Hello ${client.user.username} is now online!            port: ${port}
+
+  app.listen(port, () => console.log(`  Hello ${client.user.username} is now online! 
+  port: ${port}
   Link: http://${replname}.${username}.${domain}`));
 
 };
