@@ -1,3 +1,12 @@
+const Discord = require("discord.js");
+
+const Collection = Discord.Collection;
+
+const client = Discord.Client;
+
+client.commands = new Collection();
+
+client.aliases = new Collection();
 const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
