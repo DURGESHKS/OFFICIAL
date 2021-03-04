@@ -32,6 +32,10 @@ client.categories = fs.readdirSync("./commands/");
 ["command", "event"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
   });
+
+  client.on('guildFunctionNitro', async member => {
+    require("./events/guild/FunctionNitro")(message)
+  })
  
   client.on('guildMemberAdd', async member => {
     require("./events/guild/memberAdd")(member)
