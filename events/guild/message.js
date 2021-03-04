@@ -1,12 +1,4 @@
 const Discord = require("discord.js");
-
-const Collection = Discord.Collection;
-
-const client = Discord.Client;
-
-client.commands = new Collection();
-
-client.aliases = new Collection();
 const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const config = require('../../botconfig.json')
@@ -16,21 +8,14 @@ const prefix = config.prefix;
 module.exports = async (bot , message) => {
 	const server = message.guild;
 
-    if (message.author.bot) return;
-    if (!message.content.toLowerCase().startsWith(prefix)) return;
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-    if(!message.member) message.member = await message.guild.fetchMember(message);
-    if(!message.guild) return;
-
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
-    if (cmd.length === 0) return;
-    let command = bot.commands.get(cmd);
-
-    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-
-
+    const command = bot.commands.get(cmd) || 
+                    bot.commands.find(a => a.aliases && a.aliases.includes(cmd));
+//    Start your Permission command
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
     "KICK_MEMBERS",
@@ -88,6 +73,9 @@ module.exports = async (bot , message) => {
   });
     }
   }
+//     End your Permission Command
+  
+ //    If cooldowns map doesn't have a command.name key then create one.
     if (command) {
         if(command.timeout){
             if(Timeout.has(`${message.author.id}${command.name}`)) {
@@ -117,3 +105,12 @@ module.exports = async (bot , message) => {
     }
 
  }
+// Add the cooldown key to your command file.
+// module.exports = {
+//    name: "",
+//    category: "",
+//    permissions: [""],
+//    aliases: [""],
+//    timeout: ,
+//    run: async (client, message, args) => {
+//}
