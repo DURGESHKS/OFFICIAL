@@ -19,7 +19,7 @@ module.exports = async (bot , message) => {
     if (cmd.length === 0) return;
     let command = bot.commands.get(cmd);
 
-    if (!command) command = bot.commands.find(bot.aliases.includes(cmd));
+    if (!command) command = bot.commands.get(bot.aliases.includes(cmd));
 
 
     const validPermissions = [
