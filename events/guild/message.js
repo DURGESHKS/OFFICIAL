@@ -21,17 +21,7 @@ module.exports = async (bot , message) => {
     let command = bot.commands.get(cmd);
     if (!command) command = bot.commands.get(bot.aliases.get(cmd));
     
-    if (await message.content.startsWith(prefix + command.aliases)) {
-
-        message.delete()
-
-    }
-    if (await message.content.startsWith(prefix + command.name)) {
-
-        message.delete()
-
-    }
-    
+   
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
     "KICK_MEMBERS",
@@ -74,6 +64,7 @@ module.exports = async (bot , message) => {
       }
       if(!message.member.hasPermission(perm)){
         invalidPerms.push(perm);
+	      message.delete().catch(console.error);
       }
     }
     if (invalidPerms.length){
