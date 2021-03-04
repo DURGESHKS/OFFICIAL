@@ -5,7 +5,7 @@ module.exports = {
     name: "koala",
     category: "images",
     permissions: ["SEND_MESSAGES"],
-    aliases: ["Koala", "k", "K"],
+    aliases: ["Koala"],
     timeout: 60000,
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/koala";
