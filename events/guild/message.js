@@ -82,6 +82,7 @@ module.exports = async (bot , message) => {
     if (command) {
         if(command.timeout){
             if(Timeout.has(`${message.author.id}${command.name}`)) {
+		    message.delete().catch(console.error);
             	const embedtime = new MessageEmbed()
                 .setColor(`#EF473C`)
                 .setTitle(`\**${message.author.username}\**`)
@@ -92,7 +93,7 @@ module.exports = async (bot , message) => {
                     m.delete({ timeout: 15000 })
             });
             }else{
-                
+                    message.delete().catch(console.error);
                 command.run(bot, message, args);
                 Timeout.add(`${message.author.id}${command.name}`)
                 setTimeout(() => {
@@ -100,6 +101,7 @@ module.exports = async (bot , message) => {
                 }, command.timeout);
             }
         }else{
+		message.delete().catch(console.error);
             command.run(bot,message,args)
         }
 
