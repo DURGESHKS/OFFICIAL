@@ -3,6 +3,7 @@ const { stripIndents } = require("common-tags");
 const ms = require('ms')
 module.exports = {
     name: "help",
+    aliases: ["Help"],
     category: "info",
     permissions: ["SEND_MESSAGES"],
     description: "Returns all commands, or one specific command info",
