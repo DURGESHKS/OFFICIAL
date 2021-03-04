@@ -6,7 +6,7 @@ module.exports = {
     category: "images",
     timeout: 60000,
     permissions: ["SEND_MESSAGES"],
-    aliases: ["Fox", "f", "F"],
+    aliases: ["Fox"],
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/img/fox";
         const facts = "https://some-random-api.ml/facts/fox"
